@@ -1,0 +1,20 @@
+<div>
+  <h1>Find Collection</h1>
+  <div>
+    <form action="/collection/{{name}}" method="post">
+    	<input type="text" name="collectName">
+    	<button type="submit">Find</button>
+    </form>
+
+    {{#if error}}
+      <p>{{error}}</p>
+    {{/if}}
+
+    {{#if list}}
+      {{#each list}}
+      	<img width="100px" src={{image}}>
+      	<p>{{attri}}</p>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>
