@@ -1,20 +1,31 @@
-<div>
-  <h1>Find Collection</h1>
-  <div>
-    <form action="/collection/{{name}}" method="post">
-    	<input type="text" name="collectName">
-    	<button type="submit">Find</button>
-    </form>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div>
+      <h1 class="title">Find Collection</h1>
+      <div>
+        <form action="/collection/{{name}}" method="post">
+            <input type="text" name="collectName">
+            <button type="submit">Find</button>
+        </form>
 
-    {{#if error}}
-      <p>{{error}}</p>
-    {{/if}}
+        {{#if error}}
+          <p>{{error}}</p>
+        {{/if}}
 
-    {{#if list}}
-      {{#each list}}
-      	<img width="100px" src={{image}}>
-      	<p>{{attri}}</p>
-      {{/each}}
-    {{/if}}
-  </div>
-</div>
+        {{#if list}}
+          {{#each list}}
+            <img width="100px" src={{image}}>
+            <p>{{attri}}</p>
+          {{/each}}
+        {{/if}}
+      </div>
+    </div>
+</body>
+</html>
+

@@ -6,6 +6,8 @@ console.log(accounts);
 const express = require('express');
 const app = express();
 
+app.use(express.static('public'));
+
 var config = require('./config.js');
 var KEY = config.key;
 var SECRET = config.secret;
@@ -27,7 +29,6 @@ var oauth = new OAuth.OAuth(
 	null,
 	'HMAC-SHA1'
 )
-
 
 app.get('/', function (req, res) {
 	res.render('index');
@@ -79,7 +80,7 @@ app.post('/collection/:username', function(req, res){
 	function (err, body){
 		if(err){
 			console.log(err);
-			res.render('collection', {error: "Please try again"})
+			res.render('collection', {error: "Please try again",name: req.params.username})
 
 		}else{
 			let info = JSON.parse(body);
